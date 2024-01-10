@@ -1,0 +1,45 @@
+.main-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+}
+
+.row {
+    display: flex;
+    border: 1px solid #000;
+}
+
+.id{
+    width: 40px;
+}
+
+.task{
+    min-width: 300px;
+}
+
+.technology{
+    max-width: 80px;
+}
+
+.cell {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.sub-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sub-row {
+    display: flex;
+    border: 1px solid #000;
+}
+
+.sub-cell {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 5px;
+}

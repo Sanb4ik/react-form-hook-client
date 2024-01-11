@@ -1,7 +1,7 @@
 import './index.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Table = () => {
   const [projects, setProjects] = useState([]);
@@ -46,7 +46,7 @@ const Table = () => {
           key={index}
         >
           <button
-            className="cell id"
+            className="cell id edit-button"
             onClick={() => handleClick(index)}
           >
             Edit {index}
@@ -65,7 +65,7 @@ const Table = () => {
                     className="sub-row"
                     key={`task_${index}`}
                   >
-                    <div className="sub-cell">{task.name}</div>
+                    <div className="sub-cell">{task.taskName}</div>
                     <div className="sub-cell">{task.status}</div>
                   </div>
                 ))
@@ -76,6 +76,14 @@ const Table = () => {
           </div>
         </div>
       ))}
+      <div className="row">
+        <Link
+          to={'create'}
+          className="add-project"
+        >
+          Add Project
+        </Link>
+      </div>
     </div>
   );
 };

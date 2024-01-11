@@ -1,13 +1,25 @@
-// eslint-disable-next-line react/prop-types
-const StatusSelect = ({ register, name }) => {
+const Select = ({ register, name, options }) => {
   return (
-    <select {...register(`${name}`)}>
-      <option value=""></option>
-      <option value="Done">Done</option>
-      <option value="In work">In work</option>
-      <option value="Pending">Pending</option>
+    <select
+      {...register(`${name}`)}
+      className="placeholder"
+    >
+      <option
+        value=""
+        className="placeholder"
+      >
+        Select {name === 'priority' || name === 'technology' ? name : 'status'}
+      </option>
+      {options.map((item) => (
+        <option
+          value={item}
+          key={item}
+        >
+          {item}
+        </option>
+      ))}
     </select>
   );
 };
 
-export default StatusSelect;
+export default Select;

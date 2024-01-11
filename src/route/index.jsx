@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     element: <Edit />,
   },
   {
-    path: 'create',
+    path: 'projects/create',
     element: <CreatePage />,
   },
 ]);

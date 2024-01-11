@@ -1,7 +1,7 @@
 import './index.css';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { API } from '../../config/API.js';
 
 const Table = () => {
   const [projects, setProjects] = useState([]);
@@ -10,15 +10,10 @@ const Table = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/projects', {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        });
+        const response = await API.get('projects');
         setProjects(response.data);
-        console.log(projects);
       } catch (error) {
-        console.error('Ошибка при получении данных:', error);
+        console.error(error);
       }
     };
 

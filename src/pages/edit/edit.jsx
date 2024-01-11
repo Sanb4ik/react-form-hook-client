@@ -1,7 +1,7 @@
-import axios from 'axios';
 import Form from '../../components/form/form.jsx';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { API } from '../../config/API.js';
 
 const EditPage = () => {
   const [project, setProject] = useState({});
@@ -9,12 +9,7 @@ const EditPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/projects/${id}`, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      });
-      console.log(response.data);
+      const response = await API.get(`projects/${id}`);
       setProject(response.data);
     } catch (error) {
       console.error(error);
@@ -30,7 +25,7 @@ const EditPage = () => {
       <h1>Edit Page</h1>
       <Form
         project={project}
-        API_URL={`http://localhost:3001/api/projects/${id}`}
+        API_URL={`projects/${id}`}
       ></Form>
     </>
   );

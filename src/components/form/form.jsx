@@ -2,13 +2,13 @@ import { useFieldArray, useForm } from 'react-hook-form';
 import './form.css';
 import { DevTool } from '@hookform/devtools';
 import { useEffect } from 'react';
-import axios from 'axios';
 import { schema } from '../../utils/formValidationSchema.js';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Select from '../status-select/status-select.jsx';
 import { getDirtyValues } from '../../utils/getDirtyValues.js';
 import Task from '../task/task.jsx';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../config/API.js';
 
 const ProjectForm = ({ project, API_URL }) => {
   const {
@@ -39,11 +39,7 @@ const ProjectForm = ({ project, API_URL }) => {
   const onSubmit = async (data) => {
     const dirtyValue = getDirtyValues(dirtyFields, data);
     try {
-      await axios.post(`${API_URL}`, dirtyValue, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      });
+      await API.post(`${API_URL}`, dirtyValue);
     } catch (error) {
       console.error(error);
     }

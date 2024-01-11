@@ -5,15 +5,15 @@ import Edit from '../pages/edit/edit.jsx';
 
 export const router = createBrowserRouter([
   {
-    path: 'projects',
+    path: '',
     element: <App />,
   },
   {
-    path: 'projects/edit/:id',
+    path: '/edit/:id',
     element: <Edit />,
   },
   {
-    path: 'projects/create',
+    path: '/create',
     element: <CreatePage />,
   },
 ]);
